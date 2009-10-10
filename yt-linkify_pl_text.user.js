@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name          YouTube Channel Playlist Linkifier
-// @namespace     http://github.com/uky
+// @namespace     http://github.com/uky/greasemonkey
 // @description   Changes the currently visible plain text playlist name to link to the old classic playlist page when you click on the page.
 // @version       0.1
 // @author        Uky

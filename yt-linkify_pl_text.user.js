@@ -2,9 +2,10 @@
 // @name          YouTube Channel Playlist Linkifier
 // @namespace     http://github.com/uky/greasemonkey
 // @description   Changes plain text playlist names to link to their classic playlist pages.
-// @version       0.2.3
+// @version       0.2.4
 // @author        Uky
 // @include       http://www.youtube.com/*
+// @match         http://www.youtube.com/*
 // @exclude       http://www.youtube.com/watch?*
 // @exclude       http://www.youtube.com/results?*
 // ==/UserScript==
@@ -18,6 +19,7 @@ function xpath(query, node) {
 			null);
 }
 
+// Find playlist names and linkify them.
 function linkify(event) {
 	if (!event.target.id) {
 		return;
@@ -38,9 +40,8 @@ function linkify(event) {
 	}
 }
 
-// Check if we're on a new-style user channel.
-//var channel_check = xpath("//style[@id='channel-theme-css']"); // There's a script on USo (59894) that removes this node...
-var channel_check = xpath("//div[@id='channel-body']"); // This node should (hopefully) never be removed.
+// Install event listeners if we're on a user channel.
+var channel_check = xpath("//div[@id='channel-body']");
 if (channel_check.snapshotLength > 0) {
 	document.addEventListener('DOMNodeInserted', linkify, true );
 	document.addEventListener('DOMAttrModified', linkify, true );

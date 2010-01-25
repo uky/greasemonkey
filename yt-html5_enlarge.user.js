@@ -28,9 +28,7 @@ var header_height = header.offsetHeight;
 var controls_height = controls.offsetHeight;
 
 header.scrollIntoView(true);
-//controls.scrollIntoView(false);
 
-//var video = null;
 var video = document.getElementsByClassName(video_class)[0];
 // Wait for <video> to be inserted before acting:
 function get_video(event) {
@@ -46,6 +44,7 @@ if (!video) {
 else {
 	resize();
 }
+
 
 // Resize video player to fit window:
 function resize() {
@@ -75,7 +74,6 @@ function resize() {
 	video.style.height = video_height;
 
 	header.scrollIntoView(true);
-	//controls.scrollIntoView(false);
 }
 window.addEventListener('resize', resize, false);
 

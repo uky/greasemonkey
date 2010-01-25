@@ -56,7 +56,7 @@ function resize() {
 	base.style.marginLeft = 0;
 	base.style.paddingLeft = 0;
 	
-	head.scrollIntoView(true);
+	header.scrollIntoView(true);
 	
 	player.style.width = player_width;
 	player.style.height = player_height

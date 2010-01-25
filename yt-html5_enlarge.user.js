@@ -2,7 +2,7 @@
 // @name          YouTube HTML5 Video Maximizer
 // @namespace     http://github.com/uky/greasemonkey
 // @description   Stretches the video to fit the size of the browser window.
-// @version       0.1.0
+// @version       0.1.1
 // @author        Uky
 // @match         http://www.youtube.com/watch?*
 // ==/UserScript==
@@ -55,6 +55,8 @@ function resize() {
 
 	base.style.marginLeft = 0;
 	base.style.paddingLeft = 0;
+	
+	head.scrollIntoView(true);
 	
 	player.style.width = player_width;
 	player.style.height = player_height

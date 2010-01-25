@@ -56,8 +56,8 @@ function resize() {
 	var win_width = document.body.offsetWidth;
 	
 	var player_width = win_width + "px";
-	var player_height = (win_height - header_height) + "px";
-	var video_height = (win_height - header_height - controls_height) + "px";
+	var player_height = (win_height - header_height - 5) + "px";
+	var video_height = (win_height - header_height - controls_height - 5) + "px";
 
 
 	base.style.marginLeft = 0;

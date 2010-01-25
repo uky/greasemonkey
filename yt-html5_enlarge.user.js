@@ -22,13 +22,16 @@ var base = document.getElementById(base_ID);
 var header = document.getElementById(header_ID);
 var player = document.getElementById(player_ID);
 var container = player.getElementsByClassName(container_class)[0];
-var video = null;
 var controls = player.getElementsByClassName(controls_class)[0];
 
 var header_height = header.offsetHeight;
 var controls_height = controls.offsetHeight;
 
+header.scrollIntoView(true);
+//controls.scrollIntoView(false);
 
+//var video = null;
+var video = document.getElementsByClassName(video_class)[0];
 // Wait for <video> to be inserted before acting:
 function get_video(event) {
 	if (event.target.className != video_class)
@@ -37,8 +40,12 @@ function get_video(event) {
 	video = event.target;
 	resize();	
 }
-document.addEventListener('DOMNodeInserted', get_video, false);
-
+if (!video) {
+	document.addEventListener('DOMNodeInserted', get_video, false);
+}
+else {
+	resize();
+}
 
 // Resize video player to fit window:
 function resize() {
@@ -55,9 +62,7 @@ function resize() {
 
 	base.style.marginLeft = 0;
 	base.style.paddingLeft = 0;
-	
-	header.scrollIntoView(true);
-	
+			
 	player.style.width = player_width;
 	player.style.height = player_height
 
@@ -68,6 +73,9 @@ function resize() {
 	
 	video.style.width = player_width;
 	video.style.height = video_height;
+
+	header.scrollIntoView(true);
+	//controls.scrollIntoView(false);
 }
 window.addEventListener('resize', resize, false);
 

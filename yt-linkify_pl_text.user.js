@@ -32,17 +32,19 @@ function linkify(event) {
 	}
 	
 	var title_nodes = xpath("//div[@class='playnav-playlist-header']/div[@class='title']");
-	for (var i = 0; i < title_nodes.snapshotLength; i++) {
+	for (var i = 0; i < title_nodes.snapshotLength; ++i) {
 		var node = title_nodes.snapshotItem(i);
-		var playlist_id = node.getAttribute('id').match('playnav-playlist-([0-9A-F]+)-title')[1];
-		var playlist_name = xpath(".//text()", node).snapshotItem(0).nodeValue;
-		node.innerHTML = "<a href='http://www.youtube.com/view_play_list?p=" + playlist_id + "'>" + playlist_name + "</a>";
+		if (node.getElementsByTagName('a').length === 0) {
+			var playlist_id = node.getAttribute('id').match('playnav-playlist-([0-9A-F]+)-title')[1];
+			var playlist_name = xpath(".//text()", node).snapshotItem(0).nodeValue;
+			node.innerHTML = "<a href='http://www.youtube.com/view_play_list?p=" + playlist_id + "'>" + playlist_name + "</a>";
+		}
 	}
 }
 
 // Install event listeners if we're on a user channel.
-var channel_check = xpath("//div[@id='channel-body']");
-if (channel_check.snapshotLength > 0) {
+var channel_check = document.getElementById("channel-body"); // way faster then xpath
+if (channel_check) {
 	document.addEventListener('DOMNodeInserted', linkify, false );
-	document.addEventListener('DOMAttrModified', linkify, false );
+	//document.addEventListener('DOMAttrModified', linkify, false ); // Webkit doesn't support it and it's not needed according to my tests
 }

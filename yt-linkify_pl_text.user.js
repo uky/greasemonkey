@@ -2,12 +2,16 @@
 // @name          YouTube Channel Playlist Linkifier
 // @namespace     http://github.com/uky/greasemonkey
 // @description   Changes plain text playlist names to link to their classic playlist pages.
-// @version       0.2.6
+// @version       0.2.7
 // @author        Uky
 // @include       http://www.youtube.com/*
+// @include       https://www.youtube.com/*
 // @match         http://www.youtube.com/*
+// @match         https://www.youtube.com/*
 // @exclude       http://www.youtube.com/watch?*
+// @exclude       https://www.youtube.com/watch?*
 // @exclude       http://www.youtube.com/results?*
+// @exclude       https://www.youtube.com/results?*
 // ==/UserScript==
 
 // A nice wrapper for XPath queries. Defaults to document root node.

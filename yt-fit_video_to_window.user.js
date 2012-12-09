@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name           YouTube Fit Video to Window
 // @namespace      http://github.com/uky/greasemonkey
+// @downloadURL    https://github.com/uky/greasemonkey/raw/release/yt-fit_video_to_window.user.js
 // @description    Enlarges video to the browser's window size.
 // @version        0.1.2
 // @author         Uky

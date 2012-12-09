@@ -5,8 +5,8 @@
 // @description    Enlarges video to the browser's window size.
 // @version        0.1.2
 // @author         Uky
-// @include        http://www.youtube.com/watch?*
-// @include        https://www.youtube.com/watch?*
+// @match          http*://www.youtube.com/watch?*
+// @grant          GM_addStyle
 // ==/UserScript==
 
 // [ Constants ]

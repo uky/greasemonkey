@@ -2,8 +2,8 @@
 // @name           YouTube Fit Video to Window
 // @namespace      http://github.com/uky/greasemonkey
 // @author         Uky
-// @description    Enlarges video to the browser's window size.
-// @version        0.1.3
+// @description    Resizes video to the browser's window size.
+// @version        2012.12.13
 // @updateURL      https://github.com/uky/greasemonkey/raw/release/yt-fit_video_to_window.meta.js
 // @downloadURL    https://github.com/uky/greasemonkey/raw/release/yt-fit_video_to_window.user.js
 // @grant          none
@@ -42,11 +42,19 @@ if (video_container != null)
 	video_container.style.paddingLeft = 0;
 
 
-// Force wide mode so the sidebar doesn't get in the way of the video.
+// Prevent video overlays.
 var container = document.getElementById('watch7-container');
-var wide_class = 'watch-wide';
-if (container != null && !container.classList.contains(wide_class))
-	container.classList.add(wide_class);
+if (container != null) {
+	// Force sidebar below video.
+	var wide_class = 'watch-wide';
+	if (!container.classList.contains(wide_class))
+		container.classList.add(wide_class);
+
+	// Collapse playlist.
+	var playlist_class = 'watch-playlist-collapsed';
+	if (!container.classList.contains(playlist_class))
+		container.classList.add(playlist_class);
+}
 
 
 // Resize the video to fit the browser window.
